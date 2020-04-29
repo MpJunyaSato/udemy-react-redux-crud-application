@@ -24,12 +24,12 @@ export const getEvent = id => async dispatch => {
     dispatch({type: 'READ_EVENT', response})
 }
 
-export const putEvent = values => async dispatch => {
-    const response = await axios.post(`${ROOT_URL}/events/${values.id}${QUERY_STRING}`, values)
+export const putEvent = (id, values) => async dispatch => {
+    const response = await axios.put(`${ROOT_URL}/events/${id}${QUERY_STRING}`, values)
     dispatch({type: 'UPDATE_EVENT', response})
 }
 
 export const deleteEvent = id => async dispatch => {
-    const response = await axios.delete(`${ROOT_URL}/events/${id}${QUERY_STRING}`)
-    dispatch({type: 'DELETE_EVENT', response})
+    await axios.delete(`${ROOT_URL}/events/${id}${QUERY_STRING}`)
+    dispatch({type: 'DELETE_EVENT', id})
 }
