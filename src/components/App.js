@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-import {connect} from 'react-dom'
+import {connect} from 'react-redux'
 
 import {increment, decrement} from "../actions";
-import mapStateToProps from "react-redux/lib/connect/mapStateToProps";
-import mapDispatchToProps from "react-redux/lib/connect/mapDispatchToProps";
 
 class App extends Component {
     render() {
@@ -28,4 +26,4 @@ const mapStateToProps = state => ({value: state.count.value})
 
 const mapDispatchToProps = (increment, decrement)
 
-export default connect (mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)
